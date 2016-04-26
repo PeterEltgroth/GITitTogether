@@ -382,6 +382,10 @@
 						</aside>
 					</section>
 					<section>
+						<h2>What?</h2>
+						<p><img data-src="images/what.gif" height="70%" width="70%" /></p>
+					</section>
+					<section>
 						<h2>Merge vs. Rebase</h2>
 						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
 						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
@@ -391,15 +395,37 @@
 						</aside>
 					</section>
 					<section>
-						<h2>Rebase Warning!</h2>
-						<p>If anyone already has your C4 commit, this will cause problems.</p>
-						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
-						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
-					</section>
-					<section>
 						<h2>Fast Forward</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git checkout master
+						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git merge experiment
+						</code></pre>
 						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
 						<p><img data-src="images/fast-forward.png" height="70%" width="70%" /></p>
+						<aside class="notes">
+							Merge creates a new commit, rebase replays the existing commits.
+						</aside>
+					</section>
+					<section>
+						<h2>Tags</h2>
+						<p>Add</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git tag -a 0.1.0 "Alpha release"
+						</code></pre>
+						<p>List All</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git tag
+						</code></pre>
+						<p>List All 1.2 tags</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git tag -l {search-string}
+						</code></pre>
+						<p>git show 0.1</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git tag -l "1.2*"
+						</code></pre>
 						<aside class="notes">
 							Merge creates a new commit, rebase replays the existing commits.
 						</aside>
@@ -536,15 +562,21 @@
 						<aside class="notes">
 							Create a branch, change something, commit it and push it to origin.<br />
 						</aside>
+						<aside class="notes">
+							Sorry, this is a bit random, but lets flashback to rebasing for a moment.<br />
+						</aside>
+					</section>
+					<section>
+						<h2>Rebase Warning!</h2>
+						<p>If your fork (or any other repo) already has your C4 commit and then you rebase locally, it WILL cause problems.</p>
+						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
+						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
 					</section>
 					<section>
 						<h2>Pull Request</h2>
 						<p>A request that a change you made be pulled back into a branch on another copy of the repository.</p>
 						<p>As a developer submitting a PR, it is generally your responsibility to catch up and resolve any merge conflicts with the branch your PR is targeting.</p>
 					</section>
-					<aside class="notes">
-						Create a PR.<br />
-					</aside>
 				</section>
 				<section>
 					<section>
@@ -554,16 +586,20 @@
 					</section>
 					<section>
 						<h2>Jenkins</h2>
+						<p>My team uses Jenkins as a CI Server</p>
+						<p><img data-src="images/JenkinsBuilds.png" height="80%" width="80%" /></p>
 						<aside class="notes">
 						</aside>
 					</section>
 					<section>
-						<h2>Build</h2>
+						<h2>Registration Build</h2>
+						<p><img data-src="images/RegistrationBuild.png" height="80%" width="80%" /></p>
 						<aside class="notes">
 						</aside>
 					</section>
 					<section>
-						<h2>Details</h2>
+						<h2>Build Details</h2>
+						<p><img data-src="images/RegBuildDetails.png" height="80%" width="80%" /></p>
 						<aside class="notes">
 						</aside>
 					</section>

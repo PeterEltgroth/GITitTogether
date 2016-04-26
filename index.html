@@ -25,7 +25,7 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-						<h1>GIT it Together</h1>
+						<h1>Git it Together</h1>
 						<h4>Peter Eltgroth</h4>
 						<h4>Jeremy Heydman</h4>
 				</section>
@@ -110,7 +110,7 @@
 							A single server holds all the versioned files and clients connect to it and check them out.
 							Pros: Can share across computers and administrators can control priviledges.<br />
 							Cons: There is single point of failure. Clients have to be connected to the server to see history and share.<br />
-							Examples: CVS, Subversion, Perforce, ClearCase<br />
+							Examples: CVS, Subversion, Perforce, ClearCase, TFS<br />
 						</aside>
 					</section>
 					<section>
@@ -121,50 +121,52 @@
 							<br />
 							Pros: Everyone has a full copy of the repository, built in backup!<br />
 							Cons: More complicated to learn.<br />
-							Examples: GIT, Mercurial, Bazaar, Darcs<br />
+							Examples: Git, Mercurial, Bazaar, Darcs<br />
 						</aside>
 					</section>
 				</section>
+				<section id="fragments">
+					<h2>Why Git?</h2>
+					<p class="fragment">Design goals:</p>
+					<li class="fragment">Speed</li>
+					<li class="fragment">Simplicity (like other *nix tools)</li>
+					<li class="fragment">Support for non-linear development</li>
+					<li class="fragment">Fully distributed</li>
+					<li class="fragment">Able to handle large projects</li>
+					<small>
+						<a href="https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git">Short History</a>
+					</small>
+				</section>
 				<section>
 					<section>
-						<h2>Why GIT?</h2>
-						<a href="https://git-scm.com/">git-scm.com</a>
+						<h2>How?</h2>
+						<p>Everything is SHA-1 check-summed locally before it is committed, allowing Git to takes a stream snapshots.</p>
+						<img data-src="images/snapshots.png" height="90%" width="90%" />
 						<p>
-							<a href="https://try.github.io/levels">Learn GIT</a> in your browser.
-						</p>
-						<p>
-						</p>
-						<aside class="notes">
-						</aside>
-					</section>
-					<section>
-						<h2>Full History</h2>
-						<aside class="notes">
-						</aside>
-					</section>
-					<section>
-						<h2>No Checkout</h2>
-						<p>
-							Leverages good diff and merge capabilities
+							<small>
+								<a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">Git Basics</a>
+							</small>
 						</p>
 						<aside class="notes">
+							Note: If a file has not changed Git just points to the previous version.<br />
+							This is a Directed Acyclyic Graph<br />
+							What are some of the implications of this?
 						</aside>
 					</section>
-					<section>
-						<h2>Directed Acyclic Graph</h2>
-						<aside class="notes">
-						</aside>
+					<section id="fragment">
+						<h2>Ability to commit work offline</h2>
+						<p class="fragment">And later syncronize with others</p>
 					</section>
 					<section>
-						<h2>Cheap Branching</h2>
+						<h2>Fast, flexible branching and merging</h2>
+						<p>Experiment with solutions, merge the best &amp; delete the rest.</p>
 						<aside class="notes">
 							Changing branches applies the diff between the old branch and the new branch to the directory structure
 						</aside>
 					</section>
-					<section>
-						<h2>Remotes</h2>
-						<aside class="notes">
-						</aside>
+					<section id="fragment">
+						<h2>Full Local History</h2>
+						<p class="fragment">Fast comparisons over the complete life of the project</p>
 					</section>
 				</section>
 				<section>
@@ -175,24 +177,35 @@
 					</section>
 					<section>
 						<h2>MacOS</h2>
-						<aside class="notes">
-						</aside>
+						<p>Since Mavericks (10.9) just type 'git' in a terminal.</p>
+						<p>If you want/need a newer version downlaod it directly from <a href="https://git-scm.com/download/mac">git-scm</a>, use <a href="http://brew.sh/">Homebrew</a>, or <a href="https://desktop.github.com/">GitHub Desktop</a>.</p>
 					</section>
 					<section>
 						<h2>Windows</h2>
+						<p>Download <a href="https://git-for-windows.github.io/">git for windows</a> or <a href="https://desktop.github.com/">GitHub Desktop</a>.</p>
 						<aside class="notes">
-							Installs a limited bash shell
+							Both provide a command line BASH emulation for git.
 						</aside>
 					</section>
 					<section>
 						<h2>Linux</h2>
+						<p>
+							Fedora:
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							$ sudo yum install git-all
+						</code></pre>
+						<p>
+							Debian-based:
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+							$ sudo apt-get install git-all
+						</code></pre>
 						<aside class="notes">
 						</aside>
 					</section>
 					<section>
-						<h2>SourceTree</h2>
-						<aside class="notes">
-						</aside>
+						<h2><a href="https://www.sourcetreeapp.com/">SourceTree</a></h2>
 					</section>
 				</section>
 				<section>

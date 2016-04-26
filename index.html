@@ -333,7 +333,7 @@
 						</p>
 					</section>
 					<section>
-						<h2>Checkout a branch</h2>
+						<h2>Checkout</h2>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git checkout {branch-name}
 						</code></pre>
@@ -345,7 +345,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2>Merge a branch</h2>
+						<h2>Merge</h2>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git merge {branch-name}
 						</code></pre>
@@ -363,6 +363,45 @@
 							1. resolve conflict and save<br />
 							2. exit merge tool<br />
 							3. commit<br />
+						</aside>
+					</section>
+					<section>
+						<h2>Rebase</h2>
+						<p>Replay a changeset by rewinding to a common ancestor and reapplying each change in turn.</p>
+						<p>This keeps history more linear and easier to read.</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git rebase {branch-name}
+						</code></pre>
+						<p>
+							<small>
+								<a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">Rebasing</a>
+							</small>
+						</p>
+						<aside class="notes">
+							What?
+						</aside>
+					</section>
+					<section>
+						<h2>Merge vs. Rebase</h2>
+						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
+						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
+						<aside class="notes">
+							Merge creates a new commit, rebase replays the existing commits.<br />
+							experiment is checked out and master is rebased onto it.<br />
+						</aside>
+					</section>
+					<section>
+						<h2>Rebase Warning!</h2>
+						<p>If anyone already has your C4 commit, this will cause problems.</p>
+						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
+						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
+					</section>
+					<section>
+						<h2>Fast Forward</h2>
+						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
+						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
+						<aside class="notes">
+							Merge creates a new commit, rebase replays the existing commits.
 						</aside>
 					</section>
 					<section>
@@ -393,6 +432,7 @@
 					<section>
 						<h2>Hosted solutions</h2>
 						<aside class="notes">
+							Act like a central VCS server, but are really just another copy of the repository with access controls and other useful features.
 						</aside>
 					</section>
 					<section>
@@ -418,7 +458,7 @@
 							$ git clone https://github.com/PeterEltgroth/itconf2016
 						</code></pre>
 						<aside class="notes">
-							ls -last
+							Now you have a copy of the repository with the complete history.<br />
 						</aside>
 					</section>
 					<section>
@@ -431,28 +471,6 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git remote -v
 						</code></pre>
-						<p>Add</p>
-						<pre><code class="bash" data-trim contenteditable>
-							$ git remote add {remote-name} {url}
-						</code></pre>
-						<p>Rename</p>
-						<pre><code class="bash" data-trim contenteditable>
-							$ git remote rename {old-name} {new-name}
-						</code></pre>
-						<p>
-							<small>
-								<a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Working with remotes</a>
-							</small>
-						</p>
-						<aside class="notes">
-						</aside>
-					</section>
-					<section>
-						<h2>Remotes</h2>
-						<p>Remove</p>
-						<pre><code class="bash" data-trim contenteditable>
-							$ git remote rm {remote-name}
-						</code></pre>
 						<p>Inspect</p>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git remote show {optional-remote-name}
@@ -463,6 +481,32 @@
 							</small>
 						</p>
 						<aside class="notes">
+							Now you have a copy of the repository with the complete history.<br />
+							By default origin is the location you cloned from, typically this will be your Fork.<br />
+						</aside>
+					</section>
+					<section>
+						<h2>Remotes</h2>
+						<p>Add</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote add {remote-name} {url}
+						</code></pre>
+						<p>Rename</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote rename {old-name} {new-name}
+						</code></pre>
+						<p>Remove</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote rm {remote-name}
+						</code></pre>
+						<p>
+							<small>
+								<a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Working with remotes</a>
+							</small>
+						</p>
+						<aside class="notes">
+							1. How do we know if we're caught up to repository we forked from?<br />
+							git remote add upstream https://github.com/heydman/itconf2016
 						</aside>
 					</section>
 					<section>
@@ -470,41 +514,37 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git fetch {remote-name}
 						</code></pre>
-						<p></p>
 						<aside class="notes">
 						</aside>
 					</section>
 					<section>
 						<h2>Pull</h2>
-						<p>Fetches and merges the remote branch into the current branch</p>
+						<p>Fetches and Merges the remote branch into the current branch</p>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git pull {remote-name} {remote-branch}
 						</code></pre>
 						<aside class="notes">
+							If there are conflicts, you will need to resolve them.
 						</aside>
 					</section>
 					<section>
-						<h2>Push code up</h2>
+						<h2>Push</h2>
+						<p>Push remote branch into the current branch</p>
 						<pre><code class="bash" data-trim contenteditable>
-							$ git push
+							$ git push {remote-name} {branch-name}
 						</code></pre>
 						<aside class="notes">
+							Create a branch, change something, commit it and push it to origin.<br />
 						</aside>
 					</section>
-					<section>
-						<h2>Add a remote</h2>
-						<pre><code class="bash" data-trim contenteditable>
-							$ git remote add
-						</code></pre>
-						<aside class="notes">
-						</aside>
-					</section>
-
 					<section>
 						<h2>Pull Request</h2>
-						<aside class="notes">
-						</aside>
+						<p>A request that a change you made be pulled back into a branch on another copy of the repository.</p>
+						<p>As a developer submitting a PR, it is generally your responsibility to catch up and resolve any merge conflicts with the branch your PR is targeting.</p>
 					</section>
+					<aside class="notes">
+						Create a PR.<br />
+					</aside>
 				</section>
 				<section>
 					<section>

@@ -78,7 +78,7 @@
 					</section>
 				</section>
 				<section>
-					<section id="fragements">
+					<section>
 						<h2>What is version control?</h2>
 						<p class="fragment">A system that:</p>
 						<li class="fragment">records changes over time</li>
@@ -125,7 +125,7 @@
 						</aside>
 					</section>
 				</section>
-				<section id="fragments">
+				<section>
 					<h2>Why Git?</h2>
 					<p class="fragment">Design goals:</p>
 					<li class="fragment">Speed</li>
@@ -140,7 +140,7 @@
 				<section>
 					<section>
 						<h2>How?</h2>
-						<p>Everything is SHA-1 check-summed locally before it is committed, allowing Git to takes a stream snapshots.</p>
+						<p>Git takes a stream snapshots by doing a SHA-1 check-sum of everything before it is committed.</p>
 						<img data-src="images/snapshots.png" height="90%" width="90%" />
 						<p>
 							<small>
@@ -153,7 +153,7 @@
 							What are some of the implications of this?
 						</aside>
 					</section>
-					<section id="fragment">
+					<section>
 						<h2>Ability to commit work offline</h2>
 						<p class="fragment">And later syncronize with others</p>
 					</section>
@@ -164,7 +164,7 @@
 							Changing branches applies the diff between the old branch and the new branch to the directory structure
 						</aside>
 					</section>
-					<section id="fragment">
+					<section>
 						<h2>Full Local History</h2>
 						<p class="fragment">Fast comparisons over the complete life of the project</p>
 					</section>
@@ -192,13 +192,13 @@
 						<p>
 							Fedora:
 						</p>
-						<pre><code class="hljs" data-trim contenteditable>
+						<pre><code class="bash" data-trim contenteditable>
 							$ sudo yum install git-all
 						</code></pre>
 						<p>
 							Debian-based:
 						</p>
-						<pre><code class="hljs" data-trim contenteditable>
+						<pre><code class="bash" data-trim contenteditable>
 							$ sudo apt-get install git-all
 						</code></pre>
 						<aside class="notes">
@@ -206,11 +206,13 @@
 					</section>
 					<section>
 						<h2><a href="https://www.sourcetreeapp.com/">SourceTree</a></h2>
+						<p class="fragment">My favorite GUI</p>
+						<img data-src="images/SourceTree.png" height="75%" width="75%" />
 					</section>
 				</section>
 				<section>
 					<section>
-						<h2>GIT Basics</h2>
+						<h2><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">Git Basics</a></h2>
 						<aside class="notes">
 						</aside>
 					</section>
@@ -219,81 +221,172 @@
 						<li class="fragment">committed</li>
 						<li class="fragment">modified</li>
 						<li class="fragment">staged</li>
-						<aside class="notes">
-						</aside>
 					</section>
 					<section>
 						<img data-src="images/three-stages-01.svg" />
-						<aside class="notes">
-							Note that untracked files are treated the same as modified.
-							Source: http://code.snipcademy.com/tutorials/git/fundamentals/three-states-areas
-						</aside>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h2>Use</h2>
-						<aside class="notes">
-						</aside>
-					</section>
-					<section>
-						<h2>git --help</h2>
-						<h2>git help &lt;command&gt;</h2>
 						<p>
-							Command line help
+							<small>
+								<a href="http://code.snipcademy.com/tutorials/git/fundamentals/three-states-areas">Snipcademy Three States</a>
+							</small>
 						</p>
 						<aside class="notes">
+							1. Untracked files are treated the same as modified, both can be staged or discarded.<br />
+							2. When a file is staged, Git is able to take a snapshot of it.<br />
+							3. On commit, Git has taken a snapshot of all staged files and stored the index.
 						</aside>
 					</section>
 					<section>
-						<h2>git clone</h2>
+						<h2>Command Line Help</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git {optional-command-name} --help
+						</code></pre>
+					</section>
+					<section>
+						<h2>Try Git</h2>
+						<p>Learn Git commands in your browser at <a href="https://try.github.io">try.github.io</a></p>
+					</section>
+					<section>
+						<h2>Initialize a new Git repository</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ mkdir myproj
+						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ cd myproj
+						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git init
+						</code></pre>
 						<aside class="notes">
+							ls -last
 						</aside>
 					</section>
 					<section>
-						<h2>git init</h2>
+						<h2>Checking Status</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git status
+						</code></pre>
+					</section>
+					<section>
+						<h2>Add a file</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git add {file}
+						</code></pre>
 						<aside class="notes">
+							1. Create a few files<br />
+							2. git status - untracked<br />
+							3. git add<br />
+							4. git status - now staged
 						</aside>
 					</section>
 					<section>
-						<h2>git status</h2>
+						<h2>What differences exist?</h2>
+						<p>Diff of modified changes</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git diff
+						</code></pre>
+						<p>Diff of staged changes</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git diff --staged
+						</code></pre>
 						<aside class="notes">
+							1. Modify a committed file.<br />
+							2. git status<br />
+							3. git diff<br />
+							4. git add<br />
 						</aside>
 					</section>
 					<section>
-						<h2>git diff</h2>
+						<h2>Reset Changes</h2>
+						<p>Unstages a file</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git reset {file-path}
+						</code></pre>
 						<aside class="notes">
+							1. git status<br />
+							2. git diff<br />
 						</aside>
 					</section>
 					<section>
-						<h2>git commit</h2>
+						<h2>Commit Changes</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git commit -m '{message}'
+						</code></pre>
 						<aside class="notes">
+							1. git status<br />
+							2. git diff<br />
 						</aside>
 					</section>
 					<section>
-						<h2>git log</h2>
+						<h2>Branching</h2>
+						<p>Create</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git branch {branch-name}
+						</code></pre>
+						<p>Delete</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git branch -d {branch-name}
+						</code></pre>
+						<p>
+							<small>
+								<a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Branches in a Nutshell</a>
+							</small>
+						</p>
+					</section>
+					<section>
+						<h2>Checkout a branch</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git checkout {branch-name}
+						</code></pre>
 						<aside class="notes">
+							1. Add or modify a file and commit it<br />
+							2. checkout master<br />
+							3. create another branch, checkout, make a change, commit<br />
+							4. git diff {b1} {b2}
 						</aside>
 					</section>
 					<section>
-						<h2>git branch</h2>
+						<h2>Merge a branch</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git merge {branch-name}
+						</code></pre>
 						<aside class="notes">
+							1. chekcout master and create a conflict<br />
+							2. merge<br />
 						</aside>
 					</section>
 					<section>
-						<h2>git pull</h2>
+						<h2>Resolve conflicts</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git mergetool
+						</code></pre>
 						<aside class="notes">
+							1. resolve conflict and save<br />
+							2. exit merge tool<br />
+							3. commit<br />
 						</aside>
 					</section>
 					<section>
-						<h2>git push</h2>
-						<aside class="notes">
-						</aside>
-					</section>
-					<section>
-						<h2></h2>
-						<aside class="notes">
-						</aside>
+						<h2>Commit Log</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git log
+						</code></pre>
+						<p>Show diffs for the last n commits</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git log -p -{n}
+						</code></pre>
+						<p>Show abbreviated stats</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git log --stat
+						</code></pre>
+						<p>Show a graph</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git log --graph
+						</code></pre>
+						<p>
+							<small>
+								<a href="https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History">Viewing Commit History</a>
+							</small>
+						</p>
 					</section>
 				</section>
 				<section>
@@ -303,28 +396,110 @@
 						</aside>
 					</section>
 					<section>
-						<h2>GitHub</h2>
-						<h2>BitBucket</h2>
-						<h2>GitLab</h2>
-						<h2>VSTS</h2>
-						<aside class="notes">
-						</aside>
-					</section>
-					<section>
-						<h2>Create</h2>
+						<h2><a href="https://github.com/">GitHub</a></h2>
+						<h2><a href="https://bitbucket.org/">BitBucket</a></h2>
+						<h2><a href="https://about.gitlab.com/">GitLab</a></h2>
+						<h2><a href="https://www.visualstudio.com/en-us/version-control-vs">VSTS</a></h2>
 						<aside class="notes">
 						</aside>
 					</section>
 					<section>
 						<h2>Fork</h2>
+						<p>
+							Your copy of a repository in at the hosting provider.
+						</p>
+					</section>
+					<section>
+						<h2>Clone an existing repository</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git clone {path to repo}
+						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git clone https://github.com/PeterEltgroth/itconf2016
+						</code></pre>
+						<aside class="notes">
+							ls -last
+						</aside>
+					</section>
+					<section>
+						<h2>Remotes</h2>
+						<p>List</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote
+						</code></pre>
+						<p>List with URLs</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote -v
+						</code></pre>
+						<p>Add</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote add {remote-name} {url}
+						</code></pre>
+						<p>Rename</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote rename {old-name} {new-name}
+						</code></pre>
+						<p>
+							<small>
+								<a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Working with remotes</a>
+							</small>
+						</p>
 						<aside class="notes">
 						</aside>
 					</section>
 					<section>
-						<h2>Clone</h2>
+						<h2>Remotes</h2>
+						<p>Remove</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote rm {remote-name}
+						</code></pre>
+						<p>Inspect</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote show {optional-remote-name}
+						</code></pre>
+						<p>
+							<small>
+								<a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Working with remotes</a>
+							</small>
+						</p>
 						<aside class="notes">
 						</aside>
 					</section>
+					<section>
+						<h2>Fetch</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git fetch {remote-name}
+						</code></pre>
+						<p></p>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Pull</h2>
+						<p>Fetches and merges the remote branch into the current branch</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git pull {remote-name} {remote-branch}
+						</code></pre>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Push code up</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git push
+						</code></pre>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Add a remote</h2>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git remote add
+						</code></pre>
+						<aside class="notes">
+						</aside>
+					</section>
+
 					<section>
 						<h2>Pull Request</h2>
 						<aside class="notes">

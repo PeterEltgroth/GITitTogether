@@ -52,9 +52,8 @@
 						</aside>
 					</section>
 					<section>
-						<h2>New Bugs</h2>
+						<h2>This worked in the last release . . .</h2>
 						<aside class="notes">
-							This worked in the last release . . .
 						</aside>
 					</section>
 					<section>
@@ -79,8 +78,62 @@
 					</section>
 				</section>
 				<section>
+					<section id="fragements">
+						<h2>What is version control?</h2>
+						<p class="fragment">A system that:</p>
+						<li class="fragment">records changes over time</li>
+						<li class="fragment">allows you to revert versions</li>
+						<li class="fragment">does comparisons across time</li>
+						<li class="fragment">knows who changed what and when it was changed</li>
+						<small>
+							<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">About Version Control</a>
+						</small>
+					</section>
 					<section>
-						<h2>Why use GIT?</h2>
+						<h4>Local Version Control Systems</h4>
+						<img data-src="images/local.png" height="50%" width="50%" />
+						<aside class="notes">
+							What is good and bad about this design?<br />
+							<br />
+							Could do this manually by copying and versioning files/directories, but that's error prone.<br />
+							Pros: At least you have versioning.<br />
+							Cons: Can't easily share across computers.<br />
+							Example: VMS automates this eliminating some human error by appending a version number to the file name.
+						</aside>
+					</section>
+					<section>
+						<h4>Centralized Version Control Systems</h4>
+						<img data-src="images/centralized.png" height="50%" width="50%" />
+						<aside class="notes">
+							What are the pros and cons of this?<br />
+							<br />
+							A single server holds all the versioned files and clients connect to it and check them out.
+							Pros: Can share across computers and administrators can control priviledges.<br />
+							Cons: There is single point of failure. Clients have to be connected to the server to see history and share.<br />
+							Examples: CVS, Subversion, Perforce, ClearCase<br />
+						</aside>
+					</section>
+					<section>
+						<h4>Distributed Version Control Systems</h4>
+						<img data-src="images/distributed.png" height="50%" width="50%" />
+						<aside class="notes">
+							What do you like and not like about this?<br />
+							<br />
+							Pros: Everyone has a full copy of the repository, built in backup!<br />
+							Cons: More complicated to learn.<br />
+							Examples: GIT, Mercurial, Bazaar, Darcs<br />
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Why GIT?</h2>
+						<a href="https://git-scm.com/">git-scm.com</a>
+						<p>
+							<a href="https://try.github.io/levels">Learn GIT</a> in your browser.
+						</p>
+						<p>
+						</p>
 						<aside class="notes">
 						</aside>
 					</section>
@@ -109,7 +162,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2></h2>
+						<h2>Remotes</h2>
 						<aside class="notes">
 						</aside>
 					</section>
@@ -128,6 +181,7 @@
 					<section>
 						<h2>Windows</h2>
 						<aside class="notes">
+							Installs a limited bash shell
 						</aside>
 					</section>
 					<section>
@@ -148,12 +202,21 @@
 						</aside>
 					</section>
 					<section>
-						<h2>git init</h2>
+						<h2>git --help</h2>
+						<h2>git help &lt;command&gt;</h2>
+						<p>
+							Command line help
+						</p>
 						<aside class="notes">
 						</aside>
 					</section>
 					<section>
 						<h2>git clone</h2>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>git init</h2>
 						<aside class="notes">
 						</aside>
 					</section>
@@ -208,6 +271,7 @@
 						<h2>GitHub</h2>
 						<h2>BitBucket</h2>
 						<h2>GitLab</h2>
+						<h2>VSTS</h2>
 						<aside class="notes">
 						</aside>
 					</section>

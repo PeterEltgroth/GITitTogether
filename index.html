@@ -60,8 +60,6 @@
 					</section>
 					<section>
 						<h2>This worked in the last release . . .</h2>
-						<aside class="notes">
-						</aside>
 					</section>
 					<section>
 						<img data-src="images/OhShit.gif" />
@@ -103,10 +101,10 @@
 								<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#Local-Version-Control-Systems">Local Version Control</a>
 						</small></p>
 						<aside class="notes">
-							Could do this manually by copying and versioning files/directories, but that's error prone.<br />
 							Pros: At least you have versioning.<br />
 							Cons: Can't easily share across computers.<br />
-							Example: VMS automates this eliminating some human error by appending a version number to the file name.
+							Could do this manually by copying &amp; versioning files/directories, but that's error prone.<br />
+							VMS automates this by appending a version number to the file name.
 						</aside>
 					</section>
 					<section>
@@ -116,9 +114,9 @@
 								<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#Centralized-Version-Control-Systems">Centralized Version Control</a>
 						</small></p>
 						<aside class="notes">
-							<p>A single server holds all the versioned files and clients connect to it and check them out.</p>
+							A single server holds all the versioned files and clients connect to it and check them out.</br >
 							Pros: Can share across computers and administrators can control priviledges.<br />
-							Cons: There is single point of failure. Clients have to be connected to the server to see history and share.<br />
+							Cons: Single point of failure &amp; clients must be connected to the server to see history.<br />
 							Examples: CVS, Subversion, Perforce, ClearCase, TFS<br />
 						</aside>
 					</section>
@@ -137,7 +135,7 @@
 				</section>
 				<section>
 					<h2>Why Git?</h2>
-					<p class="fragment">Design goals:</p>
+					<p>Design goals:</p>
 					<li class="fragment">Speed</li>
 					<li class="fragment">Simplicity (like other *nix tools)</li>
 					<li class="fragment">Support for non-linear development</li>
@@ -158,8 +156,7 @@
 							</small>
 						</p>
 						<aside class="notes">
-							Note: If a file has not changed Git just points to the previous version.<br />
-							This is a Directed Acyclyic Graph<br />
+							If a file has not changed Git points to the previous version, this is a Directed Acyclyic Graph<br />
 						</aside>
 					</section>
 					<section>
@@ -170,7 +167,7 @@
 						<h2>Fast, flexible branching and merging</h2>
 						<p class="fragment">Experiment with solutions, merge the best &amp; delete the rest.</p>
 						<aside class="notes">
-							Changing branches applies the diff between the old branch and the new branch to the directory structure
+							Changing branches applies the diff between the current &amp; new branch in a single directory structure
 						</aside>
 					</section>
 					<section>
@@ -211,7 +208,7 @@
 					</section>
 					<section>
 						<h2><a href="https://www.sourcetreeapp.com/">SourceTree</a></h2>
-						<p class="fragment">My favorite GUI</p>
+						<p>My favorite GUI</p>
 						<img data-src="images/SourceTree.png" height="75%" width="75%" />
 					</section>
 				</section>
@@ -428,9 +425,6 @@
 						<p><small>
 								<a href="https://git-scm.com/docs/git-rebase">rebase</a>
 						</small></p>
-						<aside class="notes">
-							What?
-						</aside>
 					</section>
 					<section>
 						<h2>What?</h2>
@@ -441,8 +435,8 @@
 						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
 						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
 						<aside class="notes">
-							Merge creates a new commit, rebase replays the existing commits.<br />
-							experiment is checked out and master is rebased onto it.<br />
+							Merge creates a new commit, but rebase replays the existing commits.<br />
+							The 'experiment' branch is checked out and 'master' is rebased onto it.<br />
 						</aside>
 					</section>
 					<section>
@@ -455,9 +449,6 @@
 						</code></pre>
 						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
 						<p><img data-src="images/fast-forward.png" height="70%" width="70%" /></p>
-						<aside class="notes">
-							Merge creates a new commit, rebase replays the existing commits.
-						</aside>
 					</section>
 					<section>
 						<h2>Tags</h2>
@@ -480,9 +471,6 @@
 						<p><small>
 								<a href="https://git-scm.com/docs/git-tag">tag</a>
 						</small></p>
-						<aside class="notes">
-							Merge creates a new commit, rebase replays the existing commits.
-						</aside>
 					</section>
 					<section>
 						<h2>Commit Log</h2>
@@ -521,8 +509,6 @@
 						<h2><a href="https://bitbucket.org/">BitBucket</a></h2>
 						<h2><a href="https://about.gitlab.com/">GitLab</a></h2>
 						<h2><a href="https://www.visualstudio.com/en-us/version-control-vs">VSTS</a></h2>
-						<aside class="notes">
-						</aside>
 					</section>
 					<section>
 						<h2>Fork</h2>
@@ -567,7 +553,6 @@
 								<a href="https://git-scm.com/docs/git-remote">remote</a>
 						</small></p>
 						<aside class="notes">
-							Now you have a copy of the repository with the complete history.<br />
 							By default origin is the location you cloned from, typically this will be your Fork.<br />
 						</aside>
 					</section>
@@ -592,7 +577,7 @@
 								<a href="https://git-scm.com/docs/git-remote">remote</a>
 						</small></p>
 						<aside class="notes">
-							1. How do we know if we're caught up to repository we forked from?<br />
+							How do we know if we're caught up to repository we forked from?<br />
 							git remote add upstream https://github.com/heydman/itconf2016
 						</aside>
 					</section>
@@ -604,10 +589,13 @@
 						<p><small>
 								<a href="https://git-scm.com/docs/git-fetch">fetch</a>
 						</small></p>
+						<aside class="notes">
+							Fetch changes from a remote
+						</aside>
 					</section>
 					<section>
 						<h2>Pull</h2>
-						<p>Fetches and Merges the remote branch into the current branch</p>
+						<p>Fetch &amp; Merge the remote branch into the current branch</p>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git pull {remote-name} {remote-branch}
 						</code></pre>
@@ -630,15 +618,15 @@
 						<aside class="notes">
 							Create a branch, change something, commit it and push it to origin.<br />
 						</aside>
-						<aside class="notes">
-							Sorry, this is a bit random, but lets flashback to rebasing for a moment.<br />
-						</aside>
 					</section>
 					<section>
 						<h2>Rebase Warning!</h2>
 						<p><small>If your fork (or any other repo) already has your C4 commit and then you rebase locally, it WILL cause problems.</small></p>
 						<p><img data-src="images/merge.png" height="70%" width="70%" /></p>
 						<p><img data-src="images/rebase.png" height="70%" width="70%" /></p>
+						<aside class="notes">
+							Sorry, this is a bit random, but lets flashback to rebasing for a moment.<br />
+						</aside>
 					</section>
 					<section>
 						<h2>Pull Request</h2>
@@ -665,10 +653,6 @@
 						<h2>Build Details</h2>
 						<p><img data-src="images/RegBuildDetails.png" height="80%" width="80%" /></p>
 					</section>
-				</section>
-				<section>
-					<h2>Build Details</h2>
-					<p><img data-src="images/RegBuildDetails.png" height="80%" width="80%" /></p>
 				</section>
 				<section>
 					<h2>Resources</h2>

@@ -26,8 +26,15 @@
 			<div class="slides">
 				<section>
 						<h1>Git it Together</h1>
-						<h4>Peter Eltgroth</h4>
+						<h4>Peter Eltgroth</a></h4>
+						<p><small>Lead Technical Analyst<br />
+						<a href="mailto:peter.eltgroth@so.msncu.edu">peter.eltgroth@so.mnscu.edu</a>
+						</small></p>
+						<br />
 						<h4>Jeremy Heydman</h4>
+						<p><small>Web Architect<br />
+						<a href="mailto:jeremy.heydman@so.msncu.edu">jeremy.heydman@so.mnscu.edu</a>
+						</small></p>
 				</section>
 				<section>
 					<section>
@@ -41,6 +48,7 @@
 						<aside class="notes">
 							After you have finished making an change and demonstrated it, how many of you have ever heard something like:<br />
 							"The customer changed their mind and now want it to do X"<br />
+							OR<br />
 							"Sorry, I guess I liked it the old way better."?
 						</aside>
 					</section>
@@ -85,16 +93,17 @@
 						<li class="fragment">allows you to revert versions</li>
 						<li class="fragment">does comparisons across time</li>
 						<li class="fragment">knows who changed what and when it was changed</li>
-						<small>
+						<p><small>
 							<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">About Version Control</a>
-						</small>
+						</small></p>
 					</section>
 					<section>
 						<h4>Local Version Control Systems</h4>
 						<img data-src="images/local.png" height="50%" width="50%" />
+						<p><small>
+								<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#Local-Version-Control-Systems">Local Version Control</a>
+						</small></p>
 						<aside class="notes">
-							What is good and bad about this design?<br />
-							<br />
 							Could do this manually by copying and versioning files/directories, but that's error prone.<br />
 							Pros: At least you have versioning.<br />
 							Cons: Can't easily share across computers.<br />
@@ -104,10 +113,11 @@
 					<section>
 						<h4>Centralized Version Control Systems</h4>
 						<img data-src="images/centralized.png" height="50%" width="50%" />
+						<p><small>
+								<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#Centralized-Version-Control-Systems">Centralized Version Control</a>
+						</small></p>
 						<aside class="notes">
-							What are the pros and cons of this?<br />
-							<br />
-							A single server holds all the versioned files and clients connect to it and check them out.
+							<p>A single server holds all the versioned files and clients connect to it and check them out.</p>
 							Pros: Can share across computers and administrators can control priviledges.<br />
 							Cons: There is single point of failure. Clients have to be connected to the server to see history and share.<br />
 							Examples: CVS, Subversion, Perforce, ClearCase, TFS<br />
@@ -116,9 +126,10 @@
 					<section>
 						<h4>Distributed Version Control Systems</h4>
 						<img data-src="images/distributed.png" height="50%" width="50%" />
+						<p><small>
+								<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#Distributed-Version-Control-Systems">Distributed Version Control</a>
+						</small></p>
 						<aside class="notes">
-							What do you like and not like about this?<br />
-							<br />
 							Pros: Everyone has a full copy of the repository, built in backup!<br />
 							Cons: More complicated to learn.<br />
 							Examples: Git, Mercurial, Bazaar, Darcs<br />
@@ -150,7 +161,6 @@
 						<aside class="notes">
 							Note: If a file has not changed Git just points to the previous version.<br />
 							This is a Directed Acyclyic Graph<br />
-							What are some of the implications of this?
 						</aside>
 					</section>
 					<section>
@@ -159,7 +169,7 @@
 					</section>
 					<section>
 						<h2>Fast, flexible branching and merging</h2>
-						<p>Experiment with solutions, merge the best &amp; delete the rest.</p>
+						<p class="fragment">Experiment with solutions, merge the best &amp; delete the rest.</p>
 						<aside class="notes">
 							Changing branches applies the diff between the old branch and the new branch to the directory structure
 						</aside>
@@ -224,11 +234,9 @@
 					</section>
 					<section>
 						<img data-src="images/three-stages-01.svg" />
-						<p>
-							<small>
+						<p><small>
 								<a href="http://code.snipcademy.com/tutorials/git/fundamentals/three-states-areas">Snipcademy Three States</a>
-							</small>
-						</p>
+						</small></p>
 						<aside class="notes">
 							1. Untracked files are treated the same as modified, both can be staged or discarded.<br />
 							2. When a file is staged, Git is able to take a snapshot of it.<br />
@@ -256,8 +264,14 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git init
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#Initializing-a-Repository-in-an-Existing-Directory">Initializing a repository</a>
+						</small></p>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-init">init</a>
+						</small></p>
 						<aside class="notes">
-							ls -last
+							The .git/ contains everything in one place.<br />
 						</aside>
 					</section>
 					<section>
@@ -265,17 +279,33 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git status
 						</code></pre>
+						<p>Short Status</p>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git status -s
+						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-status">status</a>
+						</small></p>
 					</section>
 					<section>
-						<h2>Add a file</h2>
+						<h2>Add (stage) a file</h2>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git add {file}
 						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git add *.java
+						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git add *
+						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-add">add</a>
+						</small></p>
 						<aside class="notes">
 							1. Create a few files<br />
-							2. git status - untracked<br />
+							2. git status (view untracked files)<br />
 							3. git add<br />
-							4. git status - now staged
+							4. git status (untracked files are now staged)
 						</aside>
 					</section>
 					<section>
@@ -288,22 +318,36 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git diff --staged
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-diff">diff</a>
+						</small></p>
 						<aside class="notes">
 							1. Modify a committed file.<br />
-							2. git status<br />
-							3. git diff<br />
-							4. git add<br />
+							2. git status (see what has changed)<br />
+							3. git diff (see the difference, how it changed)<br />
+							4. git add (stage the changes file(s))<br />
 						</aside>
 					</section>
 					<section>
-						<h2>Reset Changes</h2>
-						<p>Unstages a file</p>
+						<h2>Reset (unstage) a file</h2>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git reset {file-path}
 						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git reset *.java
+						</code></pre>
+						<pre><code class="bash" data-trim contenteditable>
+							$ git reset *
+						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-reset">reset</a>
+						</small></p>
 						<aside class="notes">
-							1. git status<br />
-							2. git diff<br />
+							1. Modify a committed file.<br />
+							2. git add (stage it)<br />
+							3. git status (confirm that it is staged)<br />
+							4. git reset (unstage a file)
+							5. git status (confirm that it is unstaged)<br />
 						</aside>
 					</section>
 					<section>
@@ -311,8 +355,11 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git commit -m '{message}'
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-commit">commit</a>
+						</small></p>
 						<aside class="notes">
-							1. git status<br />
+							1. git status (confirm it has been committed)<br />
 							2. git diff<br />
 						</aside>
 					</section>
@@ -326,17 +373,21 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git branch -d {branch-name}
 						</code></pre>
-						<p>
-							<small>
+						<p><small>
 								<a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Branches in a Nutshell</a>
-							</small>
-						</p>
+						</small></p>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-branch">branch</a>
+						</small></p>
 					</section>
 					<section>
 						<h2>Checkout</h2>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git checkout {branch-name}
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-checkout">checkout</a>
+						</small></p>
 						<aside class="notes">
 							1. Add or modify a file and commit it<br />
 							2. checkout master<br />
@@ -349,6 +400,9 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git merge {branch-name}
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-merge">merge</a>
+						</small></p>
 						<aside class="notes">
 							1. chekcout master and create a conflict<br />
 							2. merge<br />
@@ -359,6 +413,9 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git mergetool
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-mergetool">mergetool</a>
+						</small></p>
 						<aside class="notes">
 							1. resolve conflict and save<br />
 							2. exit merge tool<br />
@@ -372,11 +429,12 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git rebase {branch-name}
 						</code></pre>
-						<p>
-							<small>
+						<p><small>
 								<a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">Rebasing</a>
-							</small>
-						</p>
+						</small></p>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-rebase">rebase</a>
+						</small></p>
 						<aside class="notes">
 							What?
 						</aside>
@@ -418,14 +476,17 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git tag
 						</code></pre>
-						<p>List All 1.2 tags</p>
+						<p>List matching tags</p>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git tag -l {search-string}
 						</code></pre>
-						<p>git show 0.1</p>
+						<p>List all 1.2 tags</p>
 						<pre><code class="bash" data-trim contenteditable>
 							$ git tag -l "1.2*"
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-tag">tag</a>
+						</small></p>
 						<aside class="notes">
 							Merge creates a new commit, rebase replays the existing commits.
 						</aside>
@@ -447,11 +508,12 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git log --graph
 						</code></pre>
-						<p>
-							<small>
+						<p><small>
 								<a href="https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History">Viewing Commit History</a>
-							</small>
-						</p>
+						</small></p>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-log">log</a>
+						</small></p>
 					</section>
 				</section>
 				<section>
@@ -471,9 +533,7 @@
 					</section>
 					<section>
 						<h2>Fork</h2>
-						<p>
-							Your copy of a repository in at the hosting provider.
-						</p>
+						<p>Your copy of a repository in at the hosting provider.</p>
 					</section>
 					<section>
 						<h2>Clone an existing repository</h2>
@@ -483,6 +543,12 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git clone https://github.com/PeterEltgroth/itconf2016
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#Cloning-an-Existing-Repository">Clone Existing</a>
+						</small></p>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-clone">clone</a>
+						</small></p>
 						<aside class="notes">
 							Now you have a copy of the repository with the complete history.<br />
 						</aside>
@@ -501,11 +567,12 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git remote show {optional-remote-name}
 						</code></pre>
-						<p>
-							<small>
+						<p><small>
 								<a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Working with remotes</a>
-							</small>
-						</p>
+						</small></p>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-remote">remote</a>
+						</small></p>
 						<aside class="notes">
 							Now you have a copy of the repository with the complete history.<br />
 							By default origin is the location you cloned from, typically this will be your Fork.<br />
@@ -525,11 +592,12 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git remote rm {remote-name}
 						</code></pre>
-						<p>
-							<small>
+						<p><small>
 								<a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Working with remotes</a>
-							</small>
-						</p>
+						</small></p>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-remote">remote</a>
+						</small></p>
 						<aside class="notes">
 							1. How do we know if we're caught up to repository we forked from?<br />
 							git remote add upstream https://github.com/heydman/itconf2016
@@ -540,8 +608,9 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git fetch {remote-name}
 						</code></pre>
-						<aside class="notes">
-						</aside>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-fetch">fetch</a>
+						</small></p>
 					</section>
 					<section>
 						<h2>Pull</h2>
@@ -549,6 +618,9 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git pull {remote-name} {remote-branch}
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-pull">pull</a>
+						</small></p>
 						<aside class="notes">
 							If there are conflicts, you will need to resolve them.
 						</aside>
@@ -559,6 +631,9 @@
 						<pre><code class="bash" data-trim contenteditable>
 							$ git push {remote-name} {branch-name}
 						</code></pre>
+						<p><small>
+								<a href="https://git-scm.com/docs/git-push">push</a>
+						</small></p>
 						<aside class="notes">
 							Create a branch, change something, commit it and push it to origin.<br />
 						</aside>
@@ -576,6 +651,9 @@
 						<h2>Pull Request</h2>
 						<p>A request that a change you made be pulled back into a branch on another copy of the repository.</p>
 						<p>As a developer submitting a PR, it is generally your responsibility to catch up and resolve any merge conflicts with the branch your PR is targeting.</p>
+						<p><small>
+							<a href="https://git-scm.com/book/en/v2/GitHub-Maintaining-a-Project#Managing-Pull-Requests">Managing Pull Requests</a>
+						</small></p>
 					</section>
 				</section>
 				<section>
@@ -586,7 +664,6 @@
 					</section>
 					<section>
 						<h2>Jenkins</h2>
-						<p>My team uses Jenkins as a CI Server</p>
 						<p><img data-src="images/JenkinsBuilds.png" height="80%" width="80%" /></p>
 						<aside class="notes">
 						</aside>
@@ -603,23 +680,23 @@
 						<aside class="notes">
 						</aside>
 					</section>
-					<section>
-						<h2>git tag</h2>
-						<aside class="notes">
-						</aside>
-					</section>
 				</section>
 				<section>
-					<section>
-						<h2>VSTS</h2>
-						<aside class="notes">
-						</aside>
-					</section>
+					<h2>Build Details</h2>
+					<p><img data-src="images/RegBuildDetails.png" height="80%" width="80%" /></p>
+					<aside class="notes">
+					</aside>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-
-					</script>
+				<section>
+					<h2>Resources</h2>
+					<p><a href="https://git-scm.com/about">About Git</a></p>
+					<p><a href="https://git-scm.com/doc">Git Documentation</a></p>
+					<p><a href="https://try.github.io">Try Git @ GitHub</a></p>
+					<p><a href="http://gitreal.codeschool.com/?utm_source=github&utm_medium=codeschool_option&utm_campaign=trygit">Git Real @ Code School</a></p>
+					<p><a href="https://github.com/PeterEltgroth/GITitTogether">Git it Together</a></p>
+					<aside class="notes">
+						Thank You!
+					</aside>
 				</section>
 			</div>
 		</div>

@@ -26,7 +26,7 @@
 			<div class="slides">
 				<section>
 						<h1>Git it Together</h1>
-						<h4>Peter Eltgroth</a></h4>
+						<h4>Peter Eltgroth</h4>
 						<p><small>Lead Technical Analyst<br />
 						<a href="mailto:peter.eltgroth@so.msncu.edu">peter.eltgroth@so.mnscu.edu</a>
 						</small></p>
@@ -114,7 +114,7 @@
 								<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#Centralized-Version-Control-Systems">Centralized Version Control</a>
 						</small></p>
 						<aside class="notes">
-							A single server holds all the versioned files and clients connect to it and check them out.</br >
+							A single server holds all the versioned files and clients connect to it and check them out.<br />
 							Pros: Can share across computers and administrators can control priviledges.<br />
 							Cons: Single point of failure &amp; clients must be connected to the server to see history.<br />
 							Examples: CVS, Subversion, Perforce, ClearCase, TFS<br />
@@ -652,7 +652,17 @@
 					<section>
 						<h2>Build Details</h2>
 						<p><img data-src="images/RegBuildDetails.png" height="80%" width="80%" /></p>
+						<aside class="notes">
+							Here you can see the commit (or commits) in the build and because I require my developers to add the story number and title in the commit message I can easily tie a change back to requirements.
+						</aside>
 					</section>
+					<section>
+						<h2>Site Test</h2>
+						<p><img data-src="images/RegSiteTest.png" height="80%" width="80%" /></p>
+						<aside class="notes">
+							In our applications we have a site test page which shows applications version and build number. The build number is the short git commit hash, making it easy to know exactly what is running.
+						</aside>
+				</section>
 				</section>
 				<section>
 					<h2>Resources</h2>
